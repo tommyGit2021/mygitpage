@@ -27,31 +27,43 @@
         </div>
       </nav>      
 </header>
-
+    <br><br>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<!--<button onclick="jiraHelpdesk()">
   Launch demo modal
-</button>
+</button>-->
+    <script>
+      function jiraHelpdesk(callback) {
+            var jhdScript = document.createElement('script');
+            jhdScript.type = 'text/javascript';
+            jhdScript.setAttribute('data-jsd-embedded', null);
+            jhdScript.setAttribute('data-key', '97890d3d-df2a-442f-b893-cac566ae2fb0');
+            jhdScript.setAttribute('data-base-url', 'https://jsd-widget.atlassian.com');
+            jhdScript.src='https://jsd-widget.atlassian.com/assets/embed.js';
+            if(jhdScript.readyState) { // old IE support
+            jhdScript.onreadystatechange = function() {
+              if ( jhdScript.readyState === 'loaded' || jhdScript.readyState === 'complete' ) {
+              jhdScript.onreadystatechange = null;
+              callback();
+              }
+            };
+            } else { //modern browsers
+            jhdScript.onload = function() {
+              callback();
+            };
+            }
+            document.getElementsByTagName('head')[0].appendChild(jhdScript);
+          }
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+          jiraHelpdesk(function() {
+            var DOMContentLoaded_event = document.createEvent('Event');
+            DOMContentLoaded_event.initEvent('DOMContentLoaded', true, true);
+            window.document.dispatchEvent(DOMContentLoaded_event);
+          });
+</script>
+    </script>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script data-jsd-embedded data-key="97890d3d-df2a-442f-b893-cac566ae2fb0" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+        
 </body>
 </html>
